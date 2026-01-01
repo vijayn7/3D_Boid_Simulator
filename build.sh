@@ -1,0 +1,2 @@
+rm -f ./boids
+clang++ src/main.cpp -std=c++17 -O3 -Wall -Wextra -I/opt/homebrew/opt/raylib/include -L/opt/homebrew/opt/raylib/lib -lraylib -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -o boids
