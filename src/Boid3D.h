@@ -4,6 +4,7 @@
 #include <cmath>
 
 class Boid3D {
+    public:
     Vec3D pos;
     Vec3D vel;
     Vec3D acc;
