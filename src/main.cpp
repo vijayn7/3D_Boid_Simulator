@@ -3,7 +3,7 @@
 #include <vector>
 #include <cmath>
 
-#include "Constants.cpp"
+#include "Constants.h"
 
 #include "Boid3D.h"
 #include "Vec3D.h"

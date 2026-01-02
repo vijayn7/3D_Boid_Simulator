@@ -3,7 +3,7 @@
 #include <cmath>
 #include "Vec3D.h"
 #include "Boid3D.h"
-#include "Constants.cpp"
+#include "Constants.h"
 
 class BruteForceManager : public BoidManager {
     std::vector<Boid3D> boids = {};

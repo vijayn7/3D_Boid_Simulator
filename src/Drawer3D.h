@@ -2,7 +2,7 @@
 #include "raylib.h"
 #include "Vec3D.h"
 #include "Boid3D.h"
-#include "Constants.cpp"
+#include "Constants.h"
 
 class Drawer3D {
     Color boundryColor = DARKGREEN;

@@ -2,7 +2,7 @@
 #include "Vec3D.h"
 #include <vector>
 #include <cmath>
-#include "Constants.cpp"
+#include "Constants.h"
 
 class Boid3D {
     public:
