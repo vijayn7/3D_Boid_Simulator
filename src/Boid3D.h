@@ -2,12 +2,22 @@
 #include "Vec3D.h"
 #include <vector>
 #include <cmath>
+#include "Constants.cpp"
 
 class Boid3D {
     public:
     Vec3D pos;
     Vec3D vel;
     Vec3D acc;
+
+    void wrapAround() {
+        if (pos.x < -Constants::WORLD_HALF_SIZE) pos.x += Constants::WORLD_SIZE;
+        if (pos.x > Constants::WORLD_HALF_SIZE) pos.x -= Constants::WORLD_SIZE;
+        if (pos.y < -Constants::WORLD_HALF_SIZE) pos.y += Constants::WORLD_SIZE;
+        if (pos.y > Constants::WORLD_HALF_SIZE) pos.y -= Constants::WORLD_SIZE;
+        if (pos.z < -Constants::WORLD_HALF_SIZE) pos.z += Constants::WORLD_SIZE;
+        if (pos.z > Constants::WORLD_HALF_SIZE) pos.z -= Constants::WORLD_SIZE;
+    }
 
     void applyForce(const Vec3D& force) {
         acc += force;
@@ -17,6 +27,7 @@ class Boid3D {
         vel += acc * dt;
         vel = clampMag(vel, maxSpeed);
         pos += vel * dt;
+        wrapAround();
         acc = Vec3D(0, 0, 0);
     }
 
