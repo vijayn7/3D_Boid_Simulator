@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "Vec3D.h"
 #include "Boid3D.h"
+#include "Constants.cpp"
 
 class Drawer3D {
     Color boundryColor = DARKGREEN;
@@ -15,8 +16,6 @@ class Drawer3D {
 
     float boidVelocityScale = 2.0f;
     Color boidVelocityColor = RED;
-
-    float worldSize = 50.0f;
     
 public:
 
@@ -37,7 +36,7 @@ public:
     }
 
     void drawBoundary(const Vec3D& center) {
-        DrawCubeWires({center.x, center.y, center.z}, worldSize, worldSize, worldSize, boundryColor);
+        DrawCubeWires({center.x, center.y, center.z}, Constants::WORLD_SIZE, Constants::WORLD_SIZE, Constants::WORLD_SIZE, boundryColor);
         DrawGrid(20, 2.0f);
     }
 
