@@ -53,6 +53,20 @@ class BruteForceManager : public BoidManager {
         }
     }
 
+    void updateBoids(float dt) override {
+        for (Boid3D& b : boids) {
+            std::vector<Boid3D*> neighbors = getBoidsInRange(b.pos, Constants::NEIGHBORHOOD_RADIUS);
 
+            Vec3D coh = b.cohesion(neighbors, Constants::MAX_SPEED, Constants::MAX_FORCE) * Constants::COHESION_WEIGHT;
+            Vec3D ali = b.alignment(neighbors, Constants::MAX_SPEED, Constants::MAX_FORCE) * Constants::ALIGNMENT_WEIGHT;
+            Vec3D sep = b.separation(neighbors, Constants::MAX_FORCE) * Constants::SEPARATION_WEIGHT;
+
+            b.applyForce(coh);
+            b.applyForce(ali);
+            b.applyForce(sep);
+
+            b.update(dt, Constants::MAX_SPEED);
+        }
+    }
 
 };

@@ -35,9 +35,9 @@ public:
         DrawLine3D(toV3(b.pos), toV3(velEnd), boidVelocityColor);
     }
 
-    void drawBoundary(const Vec3D& center) {
-        DrawCubeWires({center.x, center.y, center.z}, Constants::WORLD_SIZE, Constants::WORLD_SIZE, Constants::WORLD_SIZE, boundryColor);
-        DrawGrid(20, 2.0f);
+    void drawBoundary() {
+        DrawCubeWires(Constants::SIMULATION_CENTER, Constants::WORLD_SIZE, Constants::WORLD_SIZE, Constants::WORLD_SIZE, boundryColor);
+        DrawGrid(Constants::GRID_SLICE_COUNT, Constants::GRID_SPACING);
     }
 
 

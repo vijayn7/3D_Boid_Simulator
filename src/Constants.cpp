@@ -22,6 +22,10 @@ public:
     static constexpr float INITIAL_CAMERA_FOV = 45.0f;
     static constexpr CameraProjection INITIAL_CAMERA_Projection = CAMERA_PERSPECTIVE;
 
+    static constexpr Vector3 SIMULATION_CENTER = {0.0f, 0.0f, 0.0f};
+    static constexpr int GRID_SLICE_COUNT = 20; // Number of slices per axis for spatial partitioning
+    static constexpr float GRID_SPACING = 2.0f; // Distance between grid lines
+
     static constexpr Camera3D INITIAL_CAMERA = {
         .position = INITIAL_CAMERA_POSITION,
         .target = INITIAL_CAMERA_TARGET,

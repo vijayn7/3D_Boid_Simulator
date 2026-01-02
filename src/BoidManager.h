@@ -12,6 +12,8 @@ public:
     virtual std::vector<Boid3D*> getBoidsInRange(const Vec3D& position, float range) = 0;
 
     virtual void setNumBoids(const int numBoids) = 0;
+
+    virtual void updateBoids(float dt) = 0;
 };
 
 #endif
