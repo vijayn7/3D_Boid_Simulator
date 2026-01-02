@@ -3,21 +3,26 @@
 #include <cmath>
 #include "Vec3D.h"
 #include "Boid3D.h"
+#include "Constants.cpp"
 
 class BruteForceManager : public BoidManager {
     std::vector<Boid3D> boids = {};
 
+    static float frand(float min, float max) {
+        return min + static_cast<float>(rand()) / RAND_MAX * (max - min);
+    }
+
     void spawnBoid() {
         Boid3D b;
         b.pos = Vec3D{
-            static_cast<float>(rand()) / RAND_MAX * 50.0f - 25.0f,
-            static_cast<float>(rand()) / RAND_MAX * 50.0f - 25.0f,
-            static_cast<float>(rand()) / RAND_MAX * 50.0f - 25.0f
+            frand(-Constants::WORLD_HALF_SIZE, Constants::WORLD_HALF_SIZE),
+            frand(-Constants::WORLD_HALF_SIZE, Constants::WORLD_HALF_SIZE),
+            frand(-Constants::WORLD_HALF_SIZE, Constants::WORLD_HALF_SIZE)
         };
         b.vel = Vec3D{
-            static_cast<float>(rand()) / RAND_MAX * 2.0f - 1.0f,
-            static_cast<float>(rand()) / RAND_MAX * 2.0f - 1.0f,
-            static_cast<float>(rand()) / RAND_MAX * 2.0f - 1.0f
+            frand(-1.0f, 1.0f),
+            frand(-1.0f, 1.0f),
+            frand(-1.0f, 1.0f)
         };
         boids.push_back(b);
     }
